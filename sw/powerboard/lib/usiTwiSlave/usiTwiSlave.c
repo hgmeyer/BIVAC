@@ -4,11 +4,11 @@
 	Version	: 1.3  - Stable
 	autor	: Martin Junghans	jtronics@gmx.de
 	page	: www.jtronics.de
-	License	: GNU General Public License 
-	
+	License	: GNU General Public License
+
 	Update	: 09.09.2011 - ATtiny24, ATtiny44, ATtiny88
 
-	Created from Atmel source files for Application Note AVR312: 
+	Created from Atmel source files for Application Note AVR312:
 	Using the USI Module as an I2C slave like an I2C-EEPROM.
 
 //############################################################################*/
@@ -30,7 +30,7 @@
 		#define USI_START_COND_INT  USISIF
 		#define USI_START_VECTOR    USI_START_vect
 		#define USI_OVERFLOW_VECTOR USI_OVERFLOW_vect
-		
+
 #elif   defined( __AVR_ATtiny24A__ ) | \
         defined( __AVR_ATtiny44A__ ) | \
         defined( __AVR_ATtiny24__ )  | \
@@ -45,7 +45,7 @@
 		#define PIN_USI_SCL         PINA4
 		#define USI_START_COND_INT  USISIF
 		#define USI_START_VECTOR    USI_STR_vect
-		#define USI_OVERFLOW_VECTOR USI_OVF_vect  
+		#define USI_OVERFLOW_VECTOR USI_OVF_vect
 
 #elif 	defined( __AVR_ATtiny25__ ) | \
 		defined( __AVR_ATtiny45__ ) | \
@@ -129,11 +129,11 @@
 		#define PIN_USI_SCL         PINA4
 		#define USI_START_COND_INT  USISIF
 		#define USI_START_VECTOR    USI_STR_vect
-		#define USI_OVERFLOW_VECTOR USI_OVF_vect			
-		
+		#define USI_OVERFLOW_VECTOR USI_OVF_vect
+
 #else
 		#error "no USI-Slave definition for MCU available"
- 
+
 #endif
 
 //############################################## functions implemented as macros
@@ -145,9 +145,9 @@
 								( 1 << USIDC )| \
 								( 0x0E << USICNT0 );}
 
-								// Prepare ACK 
-								// Set SDA as output 
-								// Clear all interrupt flags, except Start Cond 
+								// Prepare ACK
+								// Set SDA as output
+								// Clear all interrupt flags, except Start Cond
 								// Set USI counter to shift 1 bit
 
 #define SET_USI_TO_READ_ACK( ) 	{ USIDR = 0; \
@@ -158,10 +158,10 @@
 								( 1 << USIDC ) | \
 								( 0x0E << USICNT0 );}
 
-								// Set SDA as input 
-								// Prepare ACK 
-								// Clear all interrupt flags, except Start Cond 
-								// Set USI counter to shift 1 bit 
+								// Set SDA as input
+								// Prepare ACK
+								// Clear all interrupt flags, except Start Cond
+								// Set USI counter to shift 1 bit
 
 #define SET_USI_TO_TWI_START_CONDITION_MODE( ) { \
 								USICR = ( 1 << USISIE ) | ( 0 << USIOIE ) | \
@@ -171,12 +171,12 @@
 								USISR = ( 0 << USI_START_COND_INT ) | ( 1 << USIOIF ) | ( 1 << USIPF ) | \
 								( 1 << USIDC ) | ( 0x0 << USICNT0 ); }
 
-								// Enable Start Condition Interrupt, disable Overflow Interrupt 
-								// Set USI in Two-wire mode, no USI Counter overflow hold 
-								// Shift Register Clock Source = External, positive edge 
-								// 4-Bit Counter Source = external, both edges 
-								// No toggle clock-port pin 
-								// Clear all interrupt flags, except Start Cond 
+								// Enable Start Condition Interrupt, disable Overflow Interrupt
+								// Set USI in Two-wire mode, no USI Counter overflow hold
+								// Shift Register Clock Source = External, positive edge
+								// 4-Bit Counter Source = external, both edges
+								// No toggle clock-port pin
+								// Clear all interrupt flags, except Start Cond
 
 #define SET_USI_TO_SEND_DATA( ) { DDR_USI |=  ( 1 << PORT_USI_SDA ); \
 								USISR = ( 0 << USI_START_COND_INT ) | ( 1 << USIOIF ) | ( 1 << USIPF ) | \
@@ -184,9 +184,9 @@
 								( 0x0 << USICNT0 ); \
 								}
 
-								// Set SDA as output 
-								// Clear all interrupt flags, except Start Cond 
-								// Set USI to shift out 8 bits 
+								// Set SDA as output
+								// Clear all interrupt flags, except Start Cond
+								// Set USI to shift out 8 bits
 
 #define SET_USI_TO_READ_DATA( ) { DDR_USI &= ~( 1 << PORT_USI_SDA ); \
 								USISR =	( 0 << USI_START_COND_INT ) | ( 1 << USIOIF ) | \
@@ -194,9 +194,9 @@
 								( 0x0 << USICNT0 ); \
 								}
 
-								// Set SDA as input 
-								// Clear all interrupt flags, except Start Cond 
-								// Set USI to shift out 8 bits 
+								// Set SDA as input
+								// Clear all interrupt flags, except Start Cond
+								// Set USI to shift out 8 bits
 
 #define cbi(ADDRESS,BIT) 	((ADDRESS) &= ~(1<<(BIT)))	// clear Bit
 
@@ -252,16 +252,16 @@ ISR( USI_START_VECTOR )
 	// The interrupt to prevent waiting forever - don't use USISR to test for Stop
 	// Condition as in Application Note AVR312 because the Stop Condition Flag is
 	// going to be set from the last TWI sequence
-	
+
 	while (	( PIN_USI & ( 1 << PIN_USI_SCL ) ) &&	!( ( PIN_USI & ( 1 << PIN_USI_SDA ) ) ));// SCL his high and SDA is low
 
-	if ( !( PIN_USI & ( 1 << PIN_USI_SDA ) ) )
+	if ( !( PIN_USI & ( 1 << PIN_USI_SCL ) ) )
 		{	// A Stop Condition did not occur
 		USICR =
 		( 1 << USISIE ) |								// Keep Start Condition Interrupt enabled to detect RESTART
 		( 1 << USIOIE ) |								// Enable Overflow Interrupt
 		( 1 << USIWM1 ) | ( 1 << USIWM0 ) |			    // Set USI in Two-wire mode, hold SCL low on USI Counter overflow
-		( 1 << USICS1 ) | ( 0 << USICS0 ) | ( 0 << USICLK ) |	// 4-Bit Counter Source = external, both edges; Clock Source = External, positive edge	
+		( 1 << USICS1 ) | ( 0 << USICS0 ) | ( 0 << USICLK ) |	// 4-Bit Counter Source = external, both edges; Clock Source = External, positive edge
 		( 0 << USITC );									// No toggle clock-port pin
 
 		}
@@ -273,7 +273,7 @@ ISR( USI_START_VECTOR )
 		( 1 << USIWM1 ) | ( 0 << USIWM0 ) |			    // Set USI in Two-wire mode, no USI Counter overflow hold
 		( 1 << USICS1 ) | ( 0 << USICS0 ) | ( 0 << USICLK ) |		// 4-Bit Counter Source = external, both edges; Clock Source = external, positive edge
 		( 0 << USITC );									// No toggle clock-port pin
-		} 
+		}
 
 	USISR =
 	( 1 << USI_START_COND_INT ) | ( 1 << USIOIF ) |	// Clear interrupt flags - resetting the Start Condition Flag will release SCL
@@ -290,7 +290,7 @@ ISR( USI_OVERFLOW_VECTOR )	// Handles all the communication. Only disabled when 
 		{
 //###### Address mode: check address and send ACK (and next USI_SLAVE_SEND_DATA) if OK, else reset USI
 		case USI_SLAVE_CHECK_ADDRESS:
-			if (USIDR == 0 || (USIDR & ~1) == slaveAddress)     // If adress is either 0 or own address		
+			if (USIDR == 0 || (USIDR & ~1) == slaveAddress)     // If adress is either 0 or own address
 				{
 				if (  USIDR & 0x01 )
 					{
@@ -312,7 +312,7 @@ ISR( USI_OVERFLOW_VECTOR )	// Handles all the communication. Only disabled when 
 
 //###################################### Master Write Data Mode - Slave transmit
 
-		// Check reply and goto USI_SLAVE_SEND_DATA if OK, 
+		// Check reply and goto USI_SLAVE_SEND_DATA if OK,
 		// else reset USI
 		case USI_SLAVE_CHECK_REPLY_FROM_SEND_DATA:
 			if ( USIDR )
@@ -320,15 +320,15 @@ ISR( USI_OVERFLOW_VECTOR )	// Handles all the communication. Only disabled when 
 				SET_USI_TO_TWI_START_CONDITION_MODE();	// If NACK, the master does not want more data
 				return;
 				}
-	
+
 		// From here we just drop straight into USI_SLAVE_SEND_DATA if the master sent an ACK
 		case USI_SLAVE_SEND_DATA:
 			if (buffer_adr == 0xFF) 		// No buffer position given, set buffer address to 0
 				{
 				buffer_adr=0;
-				}	
+				}
 			USIDR = txbuffer[buffer_adr]; 	// Send data byte
-			
+
 			buffer_adr++; 					// Increment buffer address for next byte
 
 			overflowState = USI_SLAVE_REQUEST_REPLY_FROM_SEND_DATA;
@@ -367,7 +367,7 @@ ISR( USI_OVERFLOW_VECTOR )	// Handles all the communication. Only disabled when 
 				else
 					{
 					buffer_adr=0; 			// Set address to 0
-					}				
+					}
 				}
 			else 							// Ongoing access, receive data
 				{
