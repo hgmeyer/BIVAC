@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -87,6 +87,7 @@
 <pin name="-VOUT" x="30.48" y="-17.78" visible="pin" length="middle" rot="R180"/>
 <pin name="REMOTE" x="12.7" y="5.08" visible="pin" length="middle" rot="R270"/>
 <pin name="TRIM" x="12.7" y="-27.94" visible="pin" length="middle" rot="R90"/>
+<text x="17.78" y="-25.4" size="1.778" layer="95">AXA04AXX-L</text>
 </symbol>
 </symbols>
 <devicesets>
