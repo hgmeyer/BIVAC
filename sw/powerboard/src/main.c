@@ -88,18 +88,26 @@ int main(void)
                         adc_buffer = (ADCH << 8 | adc_lowbyte) * 64;
 
                         // Write current measurement to buffer and switch to next ADC
-                        if (adc_n < 1) {
+                        if (adc_n < 2) {
                                 switch (adc_n) {
+                                // TODO: finish switch statement
                                 case 0:
                                         txbuffer[0] = adc_buffer;
                                         txbuffer[1] = adc_buffer >> 8;
+                                        // TODO: switch to correct ADC
                                         ADMUX |= (0 << MUX3) | (0 << MUX2) | (1 << MUX1) | (1 << MUX0);
+                                        adc_n += 1;
+                                        break;
+                                case 1:
+                                        txbuffer[2] = adc_buffer;
+                                        txbuffer[3] = adc_buffer >> 8;
+                                        // TODO: switch to correct ADC
+                                        ADMUX |= (0 << MUX3) | (0 << MUX2) | (1 << MUX1) | (1 << MUX0);
+                                        adc_n = 0;
                                         break;
                                 }
                         }
-                        else{
-                                adc_n = 0;
-                        }
+
                 }
 
         }
