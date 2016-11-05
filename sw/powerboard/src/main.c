@@ -55,6 +55,8 @@ int main(void)
         uint16_t adc_buffer;
         uint8_t adc_lowbyte;
 
+        uint8_t adc_n = 0;
+
         // Calibrate clock
         OSCCAL -= 0;
 
@@ -85,12 +87,19 @@ int main(void)
                         // Scale 10 Bit measurement to 16 Bit
                         adc_buffer = (ADCH << 8 | adc_lowbyte) * 64;
 
-                        // Write ADC measurement in TWI TX-buffer
-                        txbuffer[0] = adc_buffer;
-                        txbuffer[1] = adc_buffer >> 8;
-
-                        // TODO: Switch to next ADC
-                        ADMUX |= (0 << MUX3) | (0 << MUX2) | (1 << MUX1) | (1 << MUX0);
+                        // Switch write current measurement to buffer and switch to next ADC
+                        if (adc_n < 1) {
+                                switch (adc_n) {
+                                case 0:
+                                        txbuffer[0] = adc_buffer;
+                                        txbuffer[1] = adc_buffer >> 8;
+                                        ADMUX |= (0 << MUX3) | (0 << MUX2) | (1 << MUX1) | (1 << MUX0);
+                                        break;
+                                }
+                        }
+                        else{
+                                adc_n = 0;
+                        }
                 }
 
         }
