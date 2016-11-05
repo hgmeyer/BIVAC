@@ -87,7 +87,7 @@ int main(void)
                         // Scale 10 Bit measurement to 16 Bit
                         adc_buffer = (ADCH << 8 | adc_lowbyte) * 64;
 
-                        // Switch write current measurement to buffer and switch to next ADC
+                        // Write current measurement to buffer and switch to next ADC
                         if (adc_n < 1) {
                                 switch (adc_n) {
                                 case 0:
