@@ -1,0 +1,3 @@
+[submodule "sw/tools/powerboard_calibration/voltcraft"]
+	path = sw/tools/powerboard_calibration/voltcraft
+	url = https://github.com/ap--/voltcraft
