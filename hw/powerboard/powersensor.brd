@@ -704,10 +704,10 @@ Please make sure your boards conform to these design rules.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="C1" library="SparkFun-Capacitors" package="0603-CAP" value="" x="8.89" y="17.78" rot="R90"/>
-<element name="C2" library="SparkFun-Capacitors" package="0603-CAP" value="" x="13.97" y="17.78" rot="R90"/>
-<element name="C3" library="SparkFun-Capacitors" package="0603-CAP" value="" x="19.05" y="17.78" rot="R90"/>
-<element name="C4" library="SparkFun-Capacitors" package="0603-CAP" value="" x="24.13" y="17.78" rot="R90"/>
+<element name="C1" library="SparkFun-Capacitors" package="0603-CAP" value="10u" x="8.89" y="17.78" rot="R90"/>
+<element name="C2" library="SparkFun-Capacitors" package="0603-CAP" value="10u" x="13.97" y="17.78" rot="R90"/>
+<element name="C3" library="SparkFun-Capacitors" package="0603-CAP" value="10u" x="19.05" y="17.78" rot="R90"/>
+<element name="C4" library="SparkFun-Capacitors" package="0603-CAP" value="10u" x="24.13" y="17.78" rot="R90"/>
 <element name="C5" library="SparkFun-Capacitors" package="0603-CAP" value="100nF" x="8.5725" y="5.87375" smashed="yes" rot="R180">
 <attribute name="NAME" x="10.12825" y="6.2865" size="0.4064" layer="25" font="vector" rot="R270"/>
 <attribute name="VALUE" x="9.5885" y="7.01675" size="0.4064" layer="27" font="vector" rot="R180"/>
@@ -752,10 +752,10 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="21.5138" y="30.0863" size="0.4064" layer="25" align="bottom-center"/>
 <attribute name="VALUE" x="18.415" y="29.845" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="R1" library="SparkFun-Passives" package="0603-RES" value="12k9" x="6.35" y="21.59" rot="R90"/>
+<element name="R1" library="SparkFun-Passives" package="0603-RES" value="13k" x="6.35" y="21.59" rot="R90"/>
 <element name="R10" library="SparkFun-Passives" package="0603-RES" value="1k1" x="21.59" y="21.59" rot="R90"/>
 <element name="R11" library="SparkFun-Passives" package="0603-RES" value="1k1" x="24.13" y="21.59" rot="R270"/>
-<element name="R12" library="SparkFun-Passives" package="0603-RES" value="" x="21.59" y="17.78" rot="R90"/>
+<element name="R12" library="SparkFun-Passives" package="0603-RES" value="750R" x="21.59" y="17.78" rot="R90"/>
 <element name="R13" library="SparkFun-Passives" package="0603-RES" value="" x="8.89" y="28.575" smashed="yes" rot="R270">
 <attribute name="NAME" x="9.4615" y="30.6705" size="0.4064" layer="25" font="vector" rot="R180"/>
 <attribute name="VALUE" x="7.747" y="29.591" size="0.4064" layer="27" font="vector" rot="R270"/>
@@ -773,16 +773,16 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="VALUE" x="22.987" y="29.591" size="0.4064" layer="27" font="vector" rot="R270"/>
 </element>
 <element name="R2" library="SparkFun-Passives" package="0603-RES" value="1k1" x="8.89" y="21.59" rot="R270"/>
-<element name="R3" library="SparkFun-Passives" package="0603-RES" value="" x="6.35" y="17.78" rot="R90"/>
-<element name="R4" library="SparkFun-Passives" package="0603-RES" value="4k9" x="11.43" y="21.59" smashed="yes" rot="R90">
+<element name="R3" library="SparkFun-Passives" package="0603-RES" value="750R" x="6.35" y="17.78" rot="R90"/>
+<element name="R4" library="SparkFun-Passives" package="0603-RES" value="4k87" x="11.43" y="21.59" smashed="yes" rot="R90">
 <attribute name="NAME" x="10.668" y="20.701" size="0.4064" layer="25" font="vector" rot="R90"/>
 <attribute name="VALUE" x="12.573" y="20.574" size="0.4064" layer="27" font="vector" rot="R90"/>
 </element>
 <element name="R5" library="SparkFun-Passives" package="0603-RES" value="1k1" x="13.97" y="21.59" rot="R270"/>
-<element name="R6" library="SparkFun-Passives" package="0603-RES" value="" x="11.43" y="17.78" rot="R90"/>
-<element name="R7" library="SparkFun-Passives" package="0603-RES" value="2k9" x="16.51" y="21.59" rot="R90"/>
+<element name="R6" library="SparkFun-Passives" package="0603-RES" value="750R" x="11.43" y="17.78" rot="R90"/>
+<element name="R7" library="SparkFun-Passives" package="0603-RES" value="2k87" x="16.51" y="21.59" rot="R90"/>
 <element name="R8" library="SparkFun-Passives" package="0603-RES" value="1k1" x="19.05" y="21.59" rot="R270"/>
-<element name="R9" library="SparkFun-Passives" package="0603-RES" value="" x="16.51" y="17.78" rot="R90"/>
+<element name="R9" library="SparkFun-Passives" package="0603-RES" value="750R" x="16.51" y="17.78" rot="R90"/>
 <element name="U$1" library="SparkFun-DigitalIC" package="SO14" value="ATTINY84" x="13.335" y="10.795" smashed="yes">
 <attribute name="PROD_ID" value="IC-11285" x="13.335" y="10.795" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="9.2075" y="11.90625" size="0.4064" layer="25"/>
@@ -801,8 +801,8 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="1.67005" y="3.09245" size="0.4064" layer="25" rot="SR270" align="top-center"/>
 <attribute name="VALUE" x="1.905" y="0" size="1.27" layer="27"/>
 </element>
-<element name="R17" library="SparkFun-Passives" package="0603-RES" value="" x="9.04875" y="10.795" rot="MR0"/>
-<element name="R18" library="SparkFun-Passives" package="0603-RES" value="" x="9.04875" y="8.255" rot="MR180"/>
+<element name="R17" library="SparkFun-Passives" package="0603-RES" value="4k7" x="9.04875" y="10.795" rot="MR0"/>
+<element name="R18" library="SparkFun-Passives" package="0603-RES" value="4k7" x="9.04875" y="8.255" rot="MR180"/>
 </elements>
 <signals>
 <signal name="5V">
