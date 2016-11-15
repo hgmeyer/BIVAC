@@ -3823,12 +3823,12 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="750R"/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0603-CAP" value="10u"/>
-<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="4k87"/>
+<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="4k7"/>
 <part name="R5" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="1k1"/>
 <part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="750R"/>
 <part name="GND3" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0603-CAP" value="10u"/>
-<part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="2k87"/>
+<part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="2k7"/>
 <part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="1k1"/>
 <part name="R9" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="750R"/>
 <part name="GND4" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -3850,10 +3850,10 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="D2" library="SparkFun-LED" deviceset="LED" device="0603" value="5V"/>
 <part name="D3" library="SparkFun-LED" deviceset="LED" device="0603" value="3.3V"/>
 <part name="D4" library="SparkFun-LED" deviceset="LED" device="0603" value="1.8V"/>
-<part name="R13" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
-<part name="R14" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
-<part name="R15" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
-<part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
+<part name="R13" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="560R"/>
+<part name="R14" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="180R"/>
+<part name="R15" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="82R"/>
+<part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="0R"/>
 <part name="SUPPLY9" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 <part name="SUPPLY10" library="SparkFun-Aesthetics" deviceset="3.3V" device=""/>
 <part name="SUPPLY11" library="SparkFun-Aesthetics" deviceset="1.8V" device=""/>
@@ -3889,9 +3889,9 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <sheet>
 <plain>
 <text x="7.62" y="81.28" size="1.778" layer="91" rot="R90">Voltage divider scaled to max. 14V</text>
-<text x="73.66" y="81.28" size="1.778" layer="91" rot="R90">Voltage divider scaled to max. 4V</text>
+<text x="73.66" y="81.28" size="1.778" layer="91" rot="R90">Voltage divider scaled to max. 3.8V</text>
 <text x="73.66" y="0" size="1.778" layer="91" rot="R90">Voltage divider scaled to max 2.2V</text>
-<text x="7.62" y="0" size="1.778" layer="91" rot="R90">Voltage divider scaled to max. 6V</text>
+<text x="7.62" y="0" size="1.778" layer="91" rot="R90">Voltage divider scaled to max. 5.8V</text>
 <text x="7.62" y="152.4" size="3.81" layer="94">V_BATT</text>
 <text x="73.66" y="152.4" size="3.81" layer="94">3.3V</text>
 <text x="7.62" y="71.12" size="3.81" layer="94">5V</text>
