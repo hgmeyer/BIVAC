@@ -1,3 +1,6 @@
 [submodule "sw/tools/powerboard_calibration/voltcraft"]
 	path = sw/tools/powerboard_calibration/voltcraft
 	url = https://github.com/ap--/voltcraft
+[submodule "sw/tools/powerboard_calibration/pyusbtmc"]
+	path = sw/tools/powerboard_calibration/pyusbtmc
+	url = https://github.com/cibomahto/pyusbtmc
