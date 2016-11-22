@@ -11,16 +11,15 @@
 #define SLAVE_ADDR  0b00001000  // 0x04
 
 // The number of ADC channels to be multiplexed
-#define ADC_N       4
+#define ADC_N       5
 
-// TODO: Volatile should not be necessary here. Read: http://www.barrgroup.com/Embedded-Systems/How-To/C-Volatile-Keyword
 // ADC channel and index variables
-volatile uint8_t adc_channels[ADC_N] = {0, 1, 2, 5};
-volatile uint8_t adc_index = 0;
+uint8_t adc_channels[ADC_N] = {0, 1, 2, 5, 25}; // PA0, PA1, PA2, PA5, Unipolar Differential PA3 and PA7 (20x Gain)
+uint8_t adc_index = 0;
 
 // ADC buffer
-volatile uint16_t adc_buffer;
-volatile uint8_t adc_lowbyte;
+uint16_t adc_buffer;
+uint8_t adc_lowbyte;
 
 void initTimer(void)
 {
@@ -113,8 +112,6 @@ int main(void)
                         // Write ADC measurement to buffer
                         txbuffer[adc_index+adc_index] = adc_buffer;
                         txbuffer[adc_index+adc_index+1] = adc_buffer >> 8;
-
-                        // TODO: implement differential current measurement!
 
                         // Set ADC index
                         if (adc_index < ADC_N-1) {
