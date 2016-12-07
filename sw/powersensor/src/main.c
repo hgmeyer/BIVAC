@@ -1,3 +1,21 @@
+/*
+ * PowerSensor v0.2 firmware
+ * Copyright (C) 2016 Hanno Gerd Meyer <hanno@neuromail.de>
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the Free
+ * Software Foundation, either version 3 of the License, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -11,10 +29,10 @@
 #define SLAVE_ADDR  0b00001000  // 0x04
 
 // The number of ADC channels to be multiplexed
-#define ADC_N       5
+#define ADC_N   5
 
 // ADC channel and index variables
-uint8_t adc_channels[ADC_N] = {0, 1, 2, 5, 25}; // PA0, PA1, PA2, PA5, Unipolar Differential PA3 and PA7 (20x Gain)
+uint8_t adc_channels[ADC_N] = {0, 1, 2, 3, 7}; // PA0, PA1, PA2, PA3, PA7
 uint8_t adc_index = 0;
 
 // ADC buffer
