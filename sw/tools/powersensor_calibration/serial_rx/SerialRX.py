@@ -1,5 +1,5 @@
 # SerialRX - A multiprocessing process for receiving data from a serial port
-# Copyright (C) 2016 Hanno Gerd Meyer
+# Copyright (C) 2016 Hanno Gerd Meyer <hanno@neuromail.de>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
