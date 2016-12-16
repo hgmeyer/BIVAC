@@ -15,6 +15,7 @@
 
 import serial
 import multiprocessing
+import Queue
 
 
 class SerialRX(multiprocessing.Process):
