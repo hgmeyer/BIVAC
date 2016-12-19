@@ -115,4 +115,6 @@ if __name__ == '__main__':
 
     # Print data reveived
     while True:
-        print(output_queue.get())
+        data = output_queue.get()
+        data = 8.829e-05 * float(data) + 0.009475
+        print '{:2.2f}V'.format(data)
