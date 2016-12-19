@@ -1,12 +1,12 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-byte read_address = 4;
+byte read_address = 0x04;
 volatile int buffer[10];
 volatile uint16_t value_raw;
 
 void setup() {
-        Serial.begin(9600);
+        Serial.begin(115200);
         Wire.begin();
         Wire.setClock(400000UL);
 }
@@ -25,5 +25,5 @@ void loop() {
 
         value_raw = (buffer[0] | buffer[1]<<8);
         Serial.println(value_raw);
-        delay(100);
+        delay(10);
 }
