@@ -3,7 +3,6 @@
 
 byte read_address = 0x04;
 volatile int buffer[10];
-volatile uint16_t value_raw;
 
 void setup() {
         Serial.begin(115200);
@@ -23,7 +22,15 @@ void loop() {
                 i++;
         }
 
-        value_raw = (buffer[0] | buffer[1]<<8);
-        Serial.println(value_raw);
+        Serial.print((uint16_t)(buffer[0] | buffer[1]<<8));
+        Serial.print(' ');
+        Serial.print((uint16_t)(buffer[2] | buffer[3]<<8));
+        Serial.print(' ');
+        Serial.print((uint16_t)(buffer[4] | buffer[5]<<8));
+        Serial.print(' ');
+        Serial.print((uint16_t)(buffer[6] | buffer[7]<<8));
+        Serial.print(' ');
+        Serial.print((uint16_t)(buffer[8] | buffer[9]<<8));
+        Serial.print('\n');
         delay(10);
 }
