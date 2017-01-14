@@ -37,13 +37,16 @@ d_per_sample = 0.05  # s
 d_after_step = 1.0  # s
 
 # Range of voltages to be tested
-voltage_range = [0.0, 4.5]  # V
+voltage_range = [0.0, 2.0]  # V
+
+# Position of in serial buffer
+buffer_position = 3
 
 # Voltage increment per step
-voltage_inc = 0.1  # V
+voltage_inc = 0.01  # V
 
 # Port of the multimeter
-mm_port = '/dev/usbtmc2'
+mm_port = '/dev/usbtmc1'
 
 # Port of the Arduino
 s_port = '/dev/ttyACM0'
@@ -115,8 +118,7 @@ for i in xrange(0, len(voltages)):
         measurements[0, i, j] = float(v_mm)
 
         # Get sensorboard voltage
-        measurements[1, i, j] = serial_output_queue.get()
-
+        measurements[1, i, j] = float(serial_output_queue.get().split(' ')[buffer_position])
         print 'Read: {} - {}'.format(measurements[1, i, j], measurements[0, i, j])
 
         # Sleep for some time
