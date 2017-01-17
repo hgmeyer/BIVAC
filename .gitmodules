@@ -4,9 +4,3 @@
 [submodule "sw/tools/powerboard_calibration/pyusbtmc"]
 	path = sw/tools/powerboard_calibration/pyusbtmc
 	url = https://github.com/cibomahto/pyusbtmc
-[submodule "sw/tools/powersensor_calibration/pyusbtmc"]
-	path = sw/tools/powersensor_calibration/pyusbtmc
-	url = https://github.com/cibomahto/pyusbtmc
-[submodule "sw/tools/powersensor_calibration/voltcraft"]
-	path = sw/tools/powersensor_calibration/voltcraft
-	url = https://github.com/ap--/voltcraft
