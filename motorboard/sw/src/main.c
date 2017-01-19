@@ -9,20 +9,20 @@
 /* Initializes 16-Bit Timer1 for generating phase-correct PWM signal on OC1B pin */
 void initPWMTimer(void){
 
-        // Set OC1B pin (DDA5) as output
-        DDRA = 1 << DDA5;
+        // * Set Timer1 to PWM mode 10: phase-correct, ICR1 defines top
+        // * Clear OC1B on Compare Match when upcounting. Set OC1B on Compare Match when downcounting.
+        // * Set prescaler to
+        TCCR1A |= (1 << COM1B1) | (1 << WGM11);
+        TCCR1B |= (1 << WGM13) | (1 << CS11) |(1 << CS10);
+
+        // Set OC1B pin (PA5) as output
+        DDRA  |= (1 << PA5);
 
         // Set Timer1 top to 16-bit MAX
         ICR1 = 0xFFFF;
 
-        // * Set Timer1 to PWM mode 1: phase-correct, ICR1 defines top
-        // * Set OC1B on Compare Match when up-counting. Clear OC1B on Compare Match when down-counting.
-        // * Set prescaler to
-        TCCR1A |= (1 << COM1B1) | (1 << WGM11);
-        TCCR1B |= (1 << WGM13) | (0 << CS11) |(1 << CS10);
-
-        // Set duty cycle to 50%
-        OCR1B = 0x00FF;
+        // Set duty cycle to 0%
+        OCR1B = 0x0000;
 
         /*
            // TODO: Use 16-Bit timer1 for more fine-grained PWM control
@@ -63,7 +63,7 @@ int main(void){
         // Re-Enable interrupts
         sei();
 
-        setPWM(127);
+        setPWM(0x00FF);
 
         while(1) {
 
