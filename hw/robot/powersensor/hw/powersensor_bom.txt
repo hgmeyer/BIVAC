@@ -1,0 +1,23 @@
+Qty Value    Device             Package  Parts                Description                 PROD_ID (Reichelt)
+5            M01PTH             1X01     J3, J4, J5, J6, J9   Header 1
+1            M05PTH             1X05     J7                   Header 5
+1            M06SILK_FEMALE_PTH 1X06     J8                   Header 6
+1   1.8V     LED0603            LED-0603 D4                   LEDs                        LY L29K
+1   100nF    CAP0603-CAP        0603-CAP C5                   Capacitor                   X7R-G0603 100N
+4   10u      CAP0603-CAP        0603-CAP C1, C2, C3, C4       Capacitor                   GRM188R60J106ME47D (Conrad)
+1   13k      RESISTOR0603-RES   0603-RES R1                   Resistor                    RND 0603 1 13K
+5   1k1      RESISTOR0603-RES   0603-RES R2, R5, R8, R10, R11 Resistor                    RND 0603 1 1,1K
+1   2k7      RESISTOR0603-RES   0603-RES R7                   Resistor                    RND 0603 1 2,7K
+1   3.3V     LED0603            LED-0603 D3                   LEDs                        LO L29K
+2   1k       RESISTOR0603-RES   0603-RES R17, R18             Resistor                    (optional)
+1   4k7      RESISTOR0603-RES   0603-RES R4                   Resistor                    RND 0603 1 4,7K
+1   5V       LED0603            LED-0603 D2                   LEDs                        LS L29K
+4   750R     RESISTOR0603-RES   0603-RES R3, R6, R9, R12      Resistor                    RND 0603 1 750
+1   ATTINY84 ATTINY84           SO14     U$1                  Atmel 14-pin 8kB flash uC   ATTINY 84A-SSU
+1   I2C      PINHD-1X3/90       1X03/90  J2                   PIN HEADER
+1   ISP      AVR_SPI_PRG_6PTH   2X3      J1                   AVR ISP 6 Pin
+1   V_BAT    LED0603            LED-0603 D1                   LEDs                        LG L29K
+1   560R     RESISTOR0603-RES   0603-RES R13                  Resistor                    SMD-0603 560
+1   180R     RESISTOR0603-RES   0603-RES R14                  Resistor                    SMD-0603 180
+1   82R      RESISTOR0603-RES   0603-RES R15                  Resistor                    SMD-0603 82
+1   0R       RESISTOR0603-RES   0603-RES R16                  Resistor                    SMD-0603 0
